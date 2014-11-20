@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dab17558_74e7e640",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2014-11-20T09:24:46Z",
+      "side": 1,
+      "message": "Isn\u0027t this redundant with the path map? I can see that you would want some kind of variable to determine whether a device has a device-specific HAL though.",
+      "revId": "53cc90b2ccaa3676deadbe4b321e713efe45dc8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
