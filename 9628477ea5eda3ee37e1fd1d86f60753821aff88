@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bacf61ea_6b06dd21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-02-02T08:54:09Z",
+      "side": 1,
+      "message": "Right?",
+      "revId": "9628477ea5eda3ee37e1fd1d86f60753821aff88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bacf61ea_4b031910",
+        "filename": "loc_api/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2015-02-02T08:54:09Z",
+      "side": 1,
+      "message": "Include this thing if we *do not* have the proprietary code, and don\u0027t if we do.",
+      "revId": "9628477ea5eda3ee37e1fd1d86f60753821aff88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
