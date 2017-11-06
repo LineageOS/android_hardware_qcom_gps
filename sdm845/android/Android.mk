@@ -1,10 +1,18 @@
 LOCAL_PATH := $(call my-dir)
 
+qcom_qti_common_cflags := \
+    -Wall \
+    -Werror \
+    -Wno-format \
+    -Wno-unused-parameter \
+    -Wno-unused-private-field \
+
 include $(CLEAR_VARS)
 LOCAL_MODULE := android.hardware.gnss@1.0-impl-qti
 LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)/lib
 LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64
 LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_CFLAGS := $(qcom_qti_common_cflags)
 LOCAL_SRC_FILES := \
     AGnss.cpp \
     Gnss.cpp \
@@ -60,6 +68,7 @@ LOCAL_MODULE := android.hardware.gnss@1.0-service-qti
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_INIT_RC := android.hardware.gnss@1.0-service-qti.rc
+LOCAL_CFLAGS := $(qcom_qti_common_cflags)
 LOCAL_SRC_FILES := \
     service.cpp \
 
