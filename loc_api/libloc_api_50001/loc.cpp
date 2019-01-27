@@ -990,7 +990,7 @@ static inline int createSocket() {
     int socketFd = -1;
 
     if ((socketFd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0) {
-        LOC_LOGe("create socket error. reason:%s", strerror(errno));
+        LOC_LOGE("create socket error. reason:%s", strerror(errno));
 
      } else {
         const char* socketPath = "/data/misc/location/xtra/socket_hal_xtra";
@@ -998,9 +998,9 @@ static inline int createSocket() {
         snprintf(addr.sun_path, sizeof(addr.sun_path), "%s", socketPath);
 
         if (::connect(socketFd, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
-            LOC_LOGe("cannot connect to XTRA. reason:%s", strerror(errno));
+            LOC_LOGE("cannot connect to XTRA. reason:%s", strerror(errno));
             if (::close(socketFd)) {
-                LOC_LOGe("close socket error. reason:%s", strerror(errno));
+                LOC_LOGE("close socket error. reason:%s", strerror(errno));
             }
             socketFd = -1;
         }
@@ -1012,7 +1012,7 @@ static inline int createSocket() {
 static inline void closeSocket(const int socketFd) {
     if (socketFd >= 0) {
         if(::close(socketFd)) {
-            LOC_LOGe("close socket error. reason:%s", strerror(errno));
+            LOC_LOGE("close socket error. reason:%s", strerror(errno));
         }
     }
 }
@@ -1020,7 +1020,7 @@ static inline void closeSocket(const int socketFd) {
 static inline bool sendConnectionEvent(const bool connected, const uint8_t type) {
     int socketFd = createSocket();
     if (socketFd < 0) {
-        LOC_LOGe("XTRA unreachable. sending failed.");
+        LOC_LOGE("XTRA unreachable. sending failed.");
         return false;
     }
 
@@ -1041,7 +1041,7 @@ static inline bool sendConnectionEvent(const bool connected, const uint8_t type)
     }
 
     if (sent < 0) {
-        LOC_LOGe("sending error. reason:%s", strerror(errno));
+        LOC_LOGE("sending error. reason:%s", strerror(errno));
     }
 
     closeSocket(socketFd);
