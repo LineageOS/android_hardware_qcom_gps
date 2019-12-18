@@ -1,0 +1,65 @@
+
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_qcom_gps_msm8998_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-BSD
+    default_applicable_licenses: ["hardware_qcom_gps_msm8998_license"],
+}
+
+cc_library_shared {
+
+    name: "libloc_core",
+    vendor: true,
+
+
+
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libgps.utils",
+        "libdl",
+        "libloc_pla",
+    ],
+
+    srcs: [
+        "LocApiBase.cpp",
+        "LocAdapterBase.cpp",
+        "ContextBase.cpp",
+        "LocDualContext.cpp",
+        "loc_core_log.cpp",
+        "SystemStatus.cpp",
+    ],
+
+    cflags: [
+        "-fno-short-enums",
+        "-D_ANDROID_",
+        "-Wall",
+        "-Werror",
+        "-Wno-format",
+        "-Wno-sign-compare",
+        "-Wno-unneeded-internal-declaration",
+        "-Wno-unused-const-variable",
+        "-Wno-unused-parameter",
+        "-Wno-delete-incomplete",
+        "-Wno-switch",
+        "-Wno-overloaded-virtual",
+        "-Wno-reorder",
+    ],
+
+    header_libs: [
+        "libgps.utils_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+    ],
+
+}
+
+cc_library_headers {
+
+    name: "libloc_core_headers",
+    vendor: true,
+    export_include_dirs: ["."],
+}
