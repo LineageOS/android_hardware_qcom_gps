@@ -15,7 +15,7 @@ ifeq ($(TARGET_USES_HARDWARE_QCOM_GPS),true)
     LOCAL_PATH := $(call my-dir)
     ifeq ($(BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET),true)
 
-      ifneq ($(filter msm8996 msm8998,$(TARGET_BOARD_PLATFORM)),)
+      ifneq ($(filter msm8996,$(TARGET_BOARD_PLATFORM)),)
         include $(call all-named-subdir-makefiles,$(TARGET_BOARD_PLATFORM))
       endif #TARGET_BOARD_PLATFORM
 
