@@ -1,0 +1,48 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_qcom_gps_msm8998_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    //   SPDX-license-identifier-BSD
+    //   legacy_not_a_contribution
+    default_applicable_licenses: ["hardware_qcom_gps_msm8998_license"],
+}
+
+cc_library_shared {
+    name: "libloc_stub",
+    vendor: true,
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "liblog",
+    ],
+
+    srcs: [
+        "loc_stub_android_runtime.cpp",
+        "loc_stub_gettid.cpp",
+        "loc_stub_property_service.cpp",
+        "loc_stub_sched_policy.cpp",
+        "loc_stub_time.cpp",
+    ],
+
+    cflags: [
+        "-fno-short-enums",
+        "-D_ANDROID_",
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+        "-std=c++11",
+    ],
+
+    ldflags: ["-Wl,--export-dynamic"],
+
+    local_include_dirs: ["include"],
+}
+
+cc_library_headers {
+    name: "libloc_stub_headers",
+    export_include_dirs: ["include"],
+    vendor: true,
+}
